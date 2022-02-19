@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is an online code editor for html css and javascript. ">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="David Mungai">
+  <meta name="keywords" content="Live code editor, online code editor, live html editor, live css editor, live javascript editor">
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>
+    NScompiler | Nodejs
+  </title>
+</head>
+
+<body>
+  <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            NScompiler
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+            <ul>
+          <li><a href="https://nstimes.tk" target="_blank">NStimes</a></li>
+          <li><a href="https://jama3sidiali.tk" target="_blank">Jama3 Site</a></li>
+          <li><a href="https://calcu-lator.tk" target="_blank">Calculator</a></li>
+          <a class="icon">
+            <a href="https://www.instagram.com/abdou_flh27/" style="color: #512675"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.facebook.com/AbdouDaKiller/" style="color: #512675"><i class="fa fa-facebook"></i></a>
+            <a href="https://discord.gg/JB3RZ6S7F4" style="color: #512675"><i class="fab fa-discord"></i></a>
+          </a>
+            </ul>
+        </div>
+      </div>
+      <div>
+  <div class="header-wrap">
+    <h1>Live, Online Code Editor</h1>
+    <h4>Compile HTML, CSS and JavaScript on the web</h4>
+  </div>
+  <div id="ide-parent">
+    <div id="button-wrapper">
+      <button onclick="switchPanel(0)">HTML</button>
+      <button onclick="switchPanel(1)">CSS</button>
+      <button onclick="switchPanel(2)">js</button>
+      <button onclick="runEdit(3)">Result</button>
+    </div>
+    <div id="ide-container">
+      <div class="panel-wrapper">
+        <div id="html">
+&lt;!--predefined html, but editable--&gt;
+
+&lt;div class="circle"&gt;
+	click me!
+&lt;/div&gt;
+
+        </div>
+      </div>
+      <div class="panel-wrapper">
+        <div id="css">
+/*predefined CSS, but editable*/
+
+.circle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background: crimson;
+	margin: auto;
+	margin-top: 50px;
+	transition-duration: 300ms;
+}
+        </div>
+      </div>
+      <div class="panel-wrapper">
+        <div id="js">
+//predefined JavaScript, but editable
+
+var circle = document.querySelector(".circle");
+var bool = false;
+
+circle.addEventListener('click', function() {
+	if (!bool) {
+		circle.style.background = "coral";
+		bool = true;
+	} else {
+		circle.style.background = "crimson";
+		bool = false;
+	}
+});
+        </div>
+      </div>
+      <div class="panel-wrapper">
+        <iframe id="result"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="description">
+    <p>This code editor uses Ace for syntax highlighting and other text
+      editing features. Addition or changes to
+      the code is compiled on the fly when the result tab is clicked.</p>
+	 
+    
+	
+  </div>
+  <div class="footer">
+    <div class="inner-wrap">
+      <p>&#169; <span></span> abc</p>
+      <div class="icons-wrap">
+       
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
+
+<style type="text/css">
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0px;
+    font-family: 'segoe ui';
+  }
+  
+  .nav {
+    height: 50px;
+    width: 100%;
+    background-color: #1177ca;
+    position: relative;
+  }
+  
+  .nav > .nav-header {
+    display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 550;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .nav > .nav-btn {
+    display: none;
+  }
+  ul {
+    margin-right: 20px;
+  }
+  .nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+  }
+  .nav > .nav-links > ul li a{
+    display: block;
+    padding: 0 8px;
+    color: #fff;
+    line-height: 40px;
+    font-size: 18px;
+    text-decoration: none;
+
+  }
+  .nav > .nav-links > ul{
+    padding: 0;
+    margin-top: 5px;
+    list-style: none;
+    position: relative;
+    
+  }
+  .nav > .nav-links > ul li{
+    display: inline-block;
+    background-color: #1177ca;
+    
+    
+  }
+  .nav > .nav-links > ul li:hover{
+      background-color: #0b65af;
+      border-radius: 5px;
+  }
+  
+  .nav > #nav-check {
+    display: none;
+  }
+
+ .nav .nav-links ul a.icon{
+ margin-left: 80px;
+ margin-right: 10px;
+ }
+
+ .nav .nav-links ul a i{
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 7px;
+    margin-left: 5px;
+ }
+
+  
+  @media (max-width:750px) {
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+    }
+    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+    }
+    .nav > .nav-links > ul li a {
+      display: block;
+      width: 100%;
+    }
+
+    /*   */
+
+
+    
+      .nav > .nav-links > ul li{
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+        background-color: #333;
+         
+      }
+      .nav > .nav-links > ul li a{
+          margin-left: 40%;
+      }
+      .nav .nav-links ul a.icon{
+        margin-left: 33%;
+      }
+
+    /*   */
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+  }
+  #iframe2 {
+    margin-top: 40px; 
+  }
+  .discord {
+    color: 
+  }
+</style>
